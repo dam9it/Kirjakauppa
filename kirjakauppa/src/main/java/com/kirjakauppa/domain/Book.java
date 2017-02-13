@@ -1,12 +1,30 @@
 package com.kirjakauppa.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Book {
+    @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    private Long id;
 
 	private String title;
 	private String author;
-	private Long year;
-	private Long isbn;
-	private Float price;
+	private String year;
+	private String isbn;
+	private String price;
+	
+	
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	
 	public String getTitle() {
 		return title;
 	}
@@ -19,22 +37,22 @@ public class Book {
 	public void setAuthor(String author) {
 		this.author = author;
 	}
-	public Long getYear() {
+	public String getYear() {
 		return year;
 	}
-	public void setYear(Long year) {
+	public void setYear(String year) {
 		this.year = year;
 	}
-	public Long getIsbn() {
+	public String getIsbn() {
 		return isbn;
 	}
-	public void setIsbn(Long isbn) {
+	public void setIsbn(String isbn) {
 		this.isbn = isbn;
 	}
-	public Float getPrice() {
+	public String getPrice() {
 		return price;
 	}
-	public void setPrice(Float price) {
+	public void setPrice(String price) {
 		this.price = price;
 	}
 	@Override
@@ -42,5 +60,20 @@ public class Book {
 		return "Book [title=" + title + ", author=" + author + ", year=" + year
 				+ ", isbn=" + isbn + ", price=" + price + "]";
 	}
+	public Book(String title, String author, String year, String isbn,
+			String price) {
+		super();
+		this.title = title;
+		this.author = author;
+		this.year = year;
+		this.isbn = isbn;
+		this.price = price;
+	}
+	public Book() {
+		super();
+	}
+
+
+
 	
 }
